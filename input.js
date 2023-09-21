@@ -14,8 +14,8 @@ const setupInput = function (conn) {
   return stdin;
 };
 
-//terminate the game if user presses ctrl+c
 const handleUserInput = function (key) {
+  //terminate the game if user presses ctrl+c
   // \u0003 maps to ctrl+c input
   if (key === "\u0003") {
     process.exit();
