@@ -20,6 +20,7 @@ const connect = function () {
     console.log("Successfully connected to game server");
     //Sending our initials for the game to the server
     conn.write("Name: HSB");
+    conn.write("Say: Hello");
   });
 
   return conn;
