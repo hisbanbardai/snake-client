@@ -1,15 +1,7 @@
+const { MOVEMENT_KEYS, SPECIAL_KEYS } = require("./constants");
+
 // Stores the active TCP connection object.
 let connection;
-
-//WASD movements
-const w = "Move: up";
-const a = "Move: left";
-const s = "Move: down";
-const d = "Move: right";
-
-//canned messages
-const h = "Say: hello, how are you?";
-const l = "Say: Watch and learn :)";
 
 // setup interface to handle user input from stdin
 const setupInput = function (conn) {
@@ -30,33 +22,10 @@ const handleUserInput = function (key) {
   }
 
   //Sending command string to the server according to which ever key is pressed
-  switch (key) {
-    case "w":
-      connection.write(w);
-      break;
-
-    case "s":
-      connection.write(s);
-      break;
-
-    case "a":
-      connection.write(a);
-      break;
-
-    case "d":
-      connection.write(d);
-      break;
-
-    case "h":
-      connection.write(h);
-      break;
-
-    case "l":
-      connection.write(l);
-      break;
-
-    default:
-      break;
+  if (MOVEMENT_KEYS[key]) {
+    connection.write(MOVEMENT_KEYS[key]);
+  } else if (SPECIAL_KEYS[key]) {
+    connection.write(SPECIAL_KEYS[key]);
   }
 };
 
