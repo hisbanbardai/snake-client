@@ -2,6 +2,7 @@ const { connect } = require("./client");
 const { setupInput } = require("./input");
 
 console.log("Connecting ...");
-connect();
+const conn = connect();
 
-setupInput();
+//Passing connection object to setupInput so that using the same object we can tell server what to do when keys are pressed
+setupInput(conn);
