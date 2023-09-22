@@ -12,5 +12,5 @@ if (name) {
   //Passing connection object to setupInput so that using the same object we can tell server what to do when keys are pressed
   setupInput(conn);
 } else {
-  console.log("Please provide name as a command line argument");
+  console.log("Please provide your name initials as a command line argument");
 }
